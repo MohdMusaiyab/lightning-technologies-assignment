@@ -15,12 +15,10 @@ const Sidebar = () => {
 
   return (
     <aside className="bg-white w-64 h-screen shadow-md flex flex-col">
-      {/* Logo */}
       <div className="p-6 flex items-center space-x-2">
         <img src={logo} alt="Logo" className="h-[54px] w-[174px]" />
       </div>
 
-      {/* Menu */}
       <nav className="flex-1 px-4 mt-4">
         <ul className="space-y-2">
           {menuItems.map((item) => (
@@ -41,7 +39,6 @@ const Sidebar = () => {
         </ul>
       </nav>
 
-      {/* Image Section with Modified Background */}
       <div className="relative p-4 mt-8 flex justify-center items-end h-3/4 w-3/4 mx-auto">
         <div className="absolute bottom-0 w-full h-4/5 bg-[#3F8CFF] rounded-t-lg" />
         <div className="relative z-10 flex flex-col items-center">
