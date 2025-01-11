@@ -1,6 +1,6 @@
 # Project Title
 
-A brief description of your project goes here. Explain what the project does and its purpose.
+Internship assignment for Lightning Technologies.
 
 ## Hosted Code Link
 
@@ -8,43 +8,19 @@ You can find the hosted version of the code at the following link: [Hosted Code 
 
 ## Approach
 
-In this section, describe your approach to solving the problem or building the project. You can include:
+I implemented the dashboard dynamically by integrating an API to fetch data instead of using static JSON. The fetched data is passed to components like MetricCard, SalesChart, and TopSellingItems, ensuring real-time updates. I also handled loading states and errors to improve the user experience. Additionally, I implemented filters for selecting dates or months, allowing the dashboard to display data dynamically based on user input.
 
-- An overview of the methodology used.
-- Key features implemented.
-- Any specific algorithms or techniques that were particularly important.
-
-For example:
-1. **Research and Planning**: Conducted thorough research on the requirements and planned the architecture.
-2. **Development**: Implemented features iteratively, focusing on user feedback.
-3. **Testing**: Performed unit testing and integration testing to ensure reliability.
 
 ## Tools and Frameworks Used
 
-List the tools, programming languages, libraries, and frameworks you used in your project:
-
-- **Programming Language**: Python, JavaScript, etc.
-- **Frameworks**: React.js, Django, Flask, etc.
-- **Databases**: PostgreSQL, MongoDB, etc.
-- **Tools**: Git for version control, Docker for containerization, etc.
+- **Programming Language**: Javascript.
+- **Frameworks**: React.js, TailwindCSS.
+- **Tools**: Git for version control,Render(Fro Deployment).
 
 ## Challenges Faced
 
-Discuss any challenges you encountered during the development process and how you resolved them:
+Rendering the data dynamically was a bit challenging as it involved integrating APIs and ensuring proper state management for seamless updates. Additionally, working with charts for the first time, especially combining multiple datasets like supplier and customer records in the SalesChart and customizing the PieChart, required some effort to understand and implement effectively.
 
-1. **Challenge 1**: Describe a specific challenge you faced (e.g., integrating APIs).
-   - **Resolution**: Explain how you overcame it (e.g., researched documentation, sought help from forums).
 
-2. **Challenge 2**: Another challenge (e.g., performance issues).
-   - **Resolution**: Discuss optimization techniques or tools you used to address the issue.
 
-3. **Challenge 3**: Mention any other relevant challenges.
-   - **Resolution**: Provide insights into your problem-solving process.
 
-## Conclusion
-
-Wrap up your README with any final thoughts or acknowledgments. Invite users to contribute or provide feedback.
-
----
-
-Feel free to customize this template according to your project's specifics!

@@ -9,10 +9,10 @@ const MetricCard = ({ title, value, percentage, trend, index }) => {
   const isPositive = percentage >= 0;
 
   
-  const backgroundColor = index % 2 === 0 ? '#D9F2FB' : '#E2E5EA';
+  const bgClass = index % 2 === 0 ? 'bg-blue-100' : 'bg-gray-300';
 
   return (
-    <div className={`p-4 rounded-lg shadow-sm`} style={{ backgroundColor, height: '100px', width: '200px' }}>
+    <div className={`metric-card p-4 rounded-lg shadow-sm ${bgClass}`}>
       <div className="space-y-1">
         <p className="text-sm text-gray-500">{title}</p>
         <div className="flex items-center justify-between">

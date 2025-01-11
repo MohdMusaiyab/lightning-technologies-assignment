@@ -2,16 +2,17 @@ import React, { useState } from "react";
 
 const Navbar = () => {
   const [isProfileDropdownOpen, setProfileDropdownOpen] = useState(false);
-  const [isNotificationsOpen, setNotificationsOpen] = useState(false);
+  const [isNotificationDropdownOpen, setNotificationDropdownOpen] =
+    useState(false);
 
   const toggleProfileDropdown = () => {
     setProfileDropdownOpen(!isProfileDropdownOpen);
-    setNotificationsOpen(false); // Ensure notifications dropdown closes if open
+    setNotificationDropdownOpen(false); // Close notifications if opening profile
   };
 
-  const toggleNotifications = (e) => {
-    e.stopPropagation(); // Prevent parent handlers from triggering
-    setNotificationsOpen(!isNotificationsOpen);
+  const toggleNotificationDropdown = (e) => {
+    e.stopPropagation(); // Prevent closing the profile dropdown
+    setNotificationDropdownOpen(!isNotificationDropdownOpen);
   };
 
   return (
@@ -27,7 +28,7 @@ const Navbar = () => {
         {/* Right Section: Search and Profile */}
         <div className="flex items-center space-x-4">
           {/* Search Icon */}
-          <div className="bg-gray-100 p-2 rounded-full shadow-md hover:bg-gray-200 cursor-pointer">
+          <div className="bg-gray-100 p-2 rounded-lg shadow-md hover:bg-gray-200 cursor-pointer">
             <button className="text-gray-500 hover:text-gray-700 focus:outline-none">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +52,7 @@ const Navbar = () => {
             {/* Profile Button */}
             <div
               onClick={toggleProfileDropdown}
-              className="bg-gray-100 p-2 rounded-full shadow-md hover:bg-gray-200 cursor-pointer flex items-center space-x-2"
+              className="bg-gray-100 p-2 rounded-lg shadow-md hover:bg-gray-200 cursor-pointer flex items-center space-x-2"
             >
               <img
                 src="/assets/profile.jpg" // Replace with your profile image path
@@ -82,23 +83,48 @@ const Navbar = () => {
             {/* Profile Dropdown */}
             {isProfileDropdownOpen && (
               <div
-                className="absolute right-0 mt-2 w-48 bg-white border rounded-lg shadow-lg z-10"
-                onClick={(e) => e.stopPropagation()} // Prevent clicks from closing the dropdown
+                className="absolute right-0 mt-2 w-56 bg-white border rounded-lg shadow-lg z-10"
+                onClick={(e) => e.stopPropagation()} // Prevent clicks inside dropdown from closing it
               >
-                <button
-                  onClick={toggleNotifications}
-                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
-                >
-                  Notifications
-                </button>
                 <a
-                  href="#"
+                  href="#profile"
                   className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                 >
                   Profile
                 </a>
                 <a
-                  href="#"
+                  href="#notifications"
+                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                  onClick={toggleNotificationDropdown}
+                >
+                  Notifications
+                </a>
+                <a
+                  href="#change-firm"
+                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >
+                  Change Firm
+                </a>
+                <a
+                  href="#settings"
+                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >
+                  Settings
+                </a>
+                <a
+                  href="#help"
+                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >
+                  Help/Support
+                </a>
+                <a
+                  href="#about"
+                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >
+                  About (Version Info)
+                </a>
+                <a
+                  href="#logout"
                   className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                 >
                   Logout
@@ -106,24 +132,27 @@ const Navbar = () => {
               </div>
             )}
 
-            {/* Notifications Dropdown */}
-            {isNotificationsOpen && (
+            {/* Notification Dropdown */}
+            {isNotificationDropdownOpen && (
               <div
-                className="absolute right-0 mt-12 w-72 bg-white border rounded-lg shadow-lg z-20"
-                onClick={(e) => e.stopPropagation()} // Prevent clicks from closing it
+                className="absolute right-0 mt-2 w-80 bg-white border rounded-lg shadow-lg z-20"
+                onClick={(e) => e.stopPropagation()}
               >
-                <h4 className="p-4 text-lg font-semibold text-gray-700 border-b">
+                <p className="block px-4 py-2 text-gray-700 font-bold border-b">
                   Notifications
-                </h4>
-                <ul className="p-2 space-y-2">
-                  <li className="text-gray-600 hover:bg-gray-100 p-2 rounded-md">
-                    Notification 1
+                </p>
+                <ul>
+                  <li className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                    You Created a New Firm
                   </li>
-                  <li className="text-gray-600 hover:bg-gray-100 p-2 rounded-md">
-                    Notification 2
+                  <li className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                    New User Registered
                   </li>
-                  <li className="text-gray-600 hover:bg-gray-100 p-2 rounded-md">
-                    Notification 3
+                  <li className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                    Your Subscription Renewed
+                  </li>
+                  <li className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                    New Update Received
                   </li>
                 </ul>
               </div>
@@ -133,15 +162,15 @@ const Navbar = () => {
       </div>
 
       {/* Close dropdowns on outside click */}
-      {isProfileDropdownOpen && (
+      {isProfileDropdownOpen || isNotificationDropdownOpen ? (
         <div
           className="fixed inset-0 z-0"
           onClick={() => {
             setProfileDropdownOpen(false);
-            setNotificationsOpen(false);
+            setNotificationDropdownOpen(false);
           }}
         ></div>
-      )}
+      ) : null}
     </header>
   );
 };
