@@ -8,7 +8,7 @@ import RecentPayments from './RecentPayments';
 const MetricCard = ({ title, value, percentage, trend, index }) => {
   const isPositive = percentage >= 0;
 
-  // Set the background color based on the index
+  
   const backgroundColor = index % 2 === 0 ? '#D9F2FB' : '#E2E5EA';
 
   return (
